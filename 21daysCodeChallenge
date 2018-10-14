@@ -35,3 +35,32 @@ const GRID = [
       ["", "^", "", "", "~", "~", "", "", "", ""],
     ];
  
+ #Day13: Write a function called allRocks() which when called will return an array of the coordinates of all the rocks in your grid. (Example: allRocks() should return ['D1', 'E3', 'F3', 'E4', 'F4', 'B8', 'H8', 'B9', 'B10']). Write a function called allCurrents() which, when called, will return an array of the coordinates of all the strong currents in your grid. (Example: allCurrents() should return ['E2', 'C8', 'D8', 'D9', 'E9', 'E10', 'F10'])
+
+function allRocks() {
+        var array = [];  
+        for (var row = 0; row < GRID.length; row++) {
+            for (var j = 0; j <  GRID[row].length; j++) {
+                if (GRID[row][j] === '^') {
+                    var col = String.fromCharCode(j + 65);
+                    array.push(col+(row+1));
+                }
+            }
+        }
+        return array;
+    } 
+    allRocks()  ;
+  
+  function allCurrents() {
+        var array = [];  
+        for (var row = 0; row < GRID.length; row++) {
+            for (var j = 0; j <  GRID[row].length; j++) {
+                if (GRID[row][j] == '~') {
+                    var col = String.fromCharCode(j + 65);
+                    array.push(col+(row+1));
+                }
+            }
+        }
+        return array;
+    } 
+    allCurrents() ;

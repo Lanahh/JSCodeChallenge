@@ -35,3 +35,9 @@ const GRID = [
       ["", "^", "", "", "~", "~", "", "", "", ""],
     ];
  
+  #Day8: Write a function called isCurrent() which will take in a coordinate in the form of 'A4' and return a true or a false boolean value depending on whether there is a strong current in that cell or not. (Example: isCurrent('E2'); would return true)
+  
+         function isCurrent(e){
+             let check = lightCell(e);
+             return check === '~';
+         }

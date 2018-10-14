@@ -35,3 +35,13 @@ const GRID = [
       ["", "^", "", "", "~", "~", "", "", "", ""],
     ];
  
+ #Day7: Write a function called isRock() which will take in a coordinate in the form of 'C7' and return a true or a false boolean value depending on whether there is a rock in that cell or not. (Example: isRock('D1'); would return true)
+  
+           function isRock(element){
+             let check = lightCell(element);
+             return check !== '^'; // if(check=='^') return true;
+           }
+
+           isRock('D1');
+  
+  ***This challenge was really just need time to read instruction, finish it just less than 5 min.

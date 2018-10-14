@@ -35,3 +35,8 @@ const GRID = [
       ["", "^", "", "", "~", "~", "", "", "", ""],
     ];
  
+  #Day10: Write a function named lightRow() that takes in the number of the row and returns its contents. (Example: lightRow(2); would return ["", "", "v", "", "~", "", "", "", "", ""])
+
+      function lightRow(element){
+         return GRID[element-1];
+      }

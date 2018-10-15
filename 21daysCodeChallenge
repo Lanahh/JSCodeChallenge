@@ -35,3 +35,19 @@ const GRID = [
       ["", "^", "", "", "~", "~", "", "", "", ""],
     ];
  
+#Day 14: Write a function called allShips() which, when called, will return an array of the coordinates of all the ships in your grid. 
+  
+  function allShips(){
+        var array = [];  
+        for (var row = 0; row < GRID.length; row++) {
+            for (var j = 0; j <  GRID[row].length; j++) {
+                if (GRID[row][j] == 'v') {
+                    var col = String.fromCharCode(j + 65);
+                    array.push(col+(row+1));
+                }
+            }
+        }
+        return array;
+  
+  }
+  allShips()

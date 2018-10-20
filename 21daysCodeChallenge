@@ -45,3 +45,15 @@ const GRID = [
                  return totalRowCount;
          }
          countRows();
+
+ #Day 15: Wrote a function called firstRock() which will return the coordinates of the first rock in your grid. 
+           function firstRock(){
+             var arr = allRocks();
+             return arr[0];
+           } 
+           
+ #Day 16: Wrote a function called firstCurrent()
+           function firstCurrent(){
+             var arr = allCurrents();
+             return arr[0];
+           }

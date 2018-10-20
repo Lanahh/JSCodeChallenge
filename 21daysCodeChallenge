@@ -50,3 +50,10 @@ const GRID = [
              var arr = allRocks();
              return arr[0];
            } 
+           
+#Day 16: Write a function called firstCurrent()
+           function firstCurrent(){
+             var arr = allCurrents();
+             return arr[0];
+           }
+  

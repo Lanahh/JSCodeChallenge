@@ -45,3 +45,20 @@ const GRID = [
                  return totalRowCount;
          }
          countRows();
+
+#Day 17: Wrote a function called shipReport() which does not take any parameters, but will return an array of the coordinates of the ship furthest to the west (left) and east (right) of your GRID. (Example: shipReport() would return ['B3', 'I5'].)
+           function shipReport(){
+             var s = allShips().sort();
+             var result = [s[0], s[s.length-1]];
+             return result;
+           }
+ 
+ #Day 18: Wrote a function called howDangerous() that will take a cell in the format 'G7' and return a number value for how dangerous the cell is. (Example: howDangerous('E2') will return 50 where howDangerous('E3') will return 100.)
+          function howDangerous(e){
+             var rock = allRocks();
+             var current = allCurrents();
+              for(var i=0; i<GRID.length; i++){
+                if(e==rock[i]) return 100;
+                if(e==current[i]) return 50; 
+             }     
+         }

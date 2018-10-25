@@ -78,3 +78,26 @@ const GRID = [
     }
      totalCells() ;
  
+#Day5: Since our GRID is written in coordinates like A3 or D8, we need code that is going to be able to convert those coordinates to the numbers we need to fetch data out of the GRID array(s). All of the lighthouse operators have reported in and we know that their areas never go above Z. Let's build a function called convertColumn() which, when given the coordinate as an argument, will return the number of the column. For example, calling convertColumn('C4') should return 2 as the 'C' column is the third column, and since JavaScript arrays start at 0, that would make 2 the third column.
+         
+    function convertColumn(element){
+      return element.charCodeAt(0) - 65
+    }
+    convertColumn('C4');
+
+//    function convertColumn(str){
+//        var coordinates = str.slice(0,1);
+//        var obj={
+//            A: 0, B: 1, C: 2, D: 3, E: 4, F: 5, G: 6, H: 7, I: 8, J: 9
+//        }
+//        return obj[coordinates]; 
+//    }
+
+//Thinking....
+//    function convertIndex(index){ 
+//        var obj={
+//            0: 'A', 1: 'B',2:'C',3:'D', 4:'E', 5:'F', 6: 'G', 7:'H', 8: 'I', 9:'J'
+//        }
+//         return obj[index]; 
+//    }convertCol(1)
+ 

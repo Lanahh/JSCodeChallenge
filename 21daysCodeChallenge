@@ -34,7 +34,7 @@ const GRID = [
       ["", "^", "", "~", "~", "", "", "", "", ""],
       ["", "^", "", "", "~", "~", "", "", "", ""],
     ];
- 
+    
 
  #Day 1: Write a function called countRows() which will tell us the number of rows in our GRID. Remember that other lighthouse operators are going to be using this function, so it has to be able to work on a GRID of any size. It would be easy to write a function that just did return 10; but that wouldn't help operators with bigger or smaller areas! [You do NOT need to pass the GRID variable to the countRows() function, as it will be able to access it.[
     
@@ -101,3 +101,19 @@ const GRID = [
 //         return obj[index]; 
 //    }convertCol(1)
  
+
+ #Day6: Write a function called lightCell() that takes in the coordinates in the form of 'A3' or 'J9' and returns the contents of that specific cell. (Ex: lightCell('B4'); would return "")    
+    
+    function lightCell(coordinates){  
+         var row = coordinates.slice(1)-1 ; //   var row = parseInt(coordinates.slice(1)-1);
+         var col = convertColumn(coordinates);
+       return GRID[row][col];
+    } 
+    
+    ***I got a bug in this challenge, before I figure out it, I got another solution: (some team member in a group chat said:" it wouldn't work for the solution even though everything was fine in the console". My thought was the same, but at the end, to pass that bug. I removed all my previous code challenge, because I did not need it for this challenge. I tried and it worked, I reported to LighthouseLab. I passed this challenge. (#painful moments)
+    
+    function lightCell(element){
+         return GRID[element.substr(1, 2) - 1][ element.charCodeAt(0) - 65];
+    } 
+    lightCell('F10');
+

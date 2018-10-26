@@ -99,7 +99,7 @@ const GRID = [
 //            0: 'A', 1: 'B',2:'C',3:'D', 4:'E', 5:'F', 6: 'G', 7:'H', 8: 'I', 9:'J'
 //        }
 //         return obj[index]; 
-//    }convertCol(1)
+//    }convertIndex(1)
  
 
  #Day6: Write a function called lightCell() that takes in the coordinates in the form of 'A3' or 'J9' and returns the contents of that specific cell. (Ex: lightCell('B4'); would return "")    

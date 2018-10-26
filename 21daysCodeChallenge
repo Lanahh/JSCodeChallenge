@@ -34,27 +34,19 @@ const GRID = [
       ["", "^", "", "~", "~", "", "", "", "", ""],
       ["", "^", "", "", "~", "~", "", "", "", ""],
     ];
- 
- #Day 1: Write a function called countRows() which will tell us the number of rows in our GRID. Remember that other lighthouse operators are going to be using this function, so it has to be able to work on a GRID of any size. It would be easy to write a function that just did return 10; but that wouldn't help operators with bigger or smaller areas! [You do NOT need to pass the GRID variable to the countRows() function, as it will be able to access it.[
     
-         function countRows() {
-                 var totalRowCount = 0;
-                 for(i=0; i<GRID.length;i++){
-                   totalRowCount ++;
-                 }
-                 return totalRowCount;
-         }
-         countRows();
 
 #Day 17: Wrote a function called shipReport() which does not take any parameters, but will return an array of the coordinates of the ship furthest to the west (left) and east (right) of your GRID. (Example: shipReport() would return ['B3', 'I5'].)
-           function shipReport(){
+ 
+          function shipReport(){
              var s = allShips().sort();
              var result = [s[0], s[s.length-1]];
              return result;
-           }
+          }
  
  #Day 18: Wrote a function called howDangerous() that will take a cell in the format 'G7' and return a number value for how dangerous the cell is. (Example: howDangerous('E2') will return 50 where howDangerous('E3') will return 100.)
-          function howDangerous(e){
+         
+         function howDangerous(e){
              var rock = allRocks();
              var current = allCurrents();
               for(var i=0; i<GRID.length; i++){
@@ -62,3 +54,53 @@ const GRID = [
                 if(e==current[i]) return 50; 
              }     
          }
+
+#Day 19: Write a function percentageReport() that returns the right percentages. (Example: calling percentageReport() should return the following array: [9.00, 7.00], as 9% of your GRID is rocks, and 7% is currents.) Your grid produces nice easy integers. However, not all grids will. Just to be certain, make sure your results always return 2 decimal places. This will really help ALL the Lighthouse9000™ operators.
+
+  function allOfType(charCode){
+    if(GRID.length<1)return [];
+    let result = [];
+    for(i=0;i<GRID.length;i++){
+    	for(j=0;j<GRID[i].length;j++){
+    		if(GRID[i][j]==charCode)
+          result.push(String.fromCharCode(j+65)+String(i+1));
+      }
+    }
+    return result;
+  }
+  function percentageReport(){
+      var aCurrent = allOfType('~'); 
+      var aRock = allOfType('^');
+ 
+      var totalCell = countColumns()*countRows();  
+      var perCurrent = (aCurrent.length/totalCell) * 100;
+      var perRocks = (aRock.length/totalCell) * 100;
+      var result = [];
+      result.push(perRocks.toFixed(2),perCurrent.toFixed(2));
+           // result[0] = +perRocks.toPrecision(3);
+           // result [1] = +perCurrent.toPrecision(3)
+   
+        return result;
+  } 
+
+#Day 20: Write another function called `safetyReport()` which will return your GRID with all of the values replaced by the percentage for how dangerous they are. The percentages for how dangerous a cell is were established in question #18.
+         
+         -first test: test fail when safetyReport() is called again, it will give 0 for all grids; 
+           function safetyReport(){ 
+             for (var i=0;  i<GRID.length; i++) {
+               for (var j=0; j<GRID[i].length; j++) {
+                  if (GRID[i][j] === "^") {
+                     GRID[i][j] = 100; 
+                   } else if (GRID[i][j] === "~") {
+                     GRID[i][j] = 50; 
+                   } else{
+                     GRID[i][j] = 0;  
+                   }
+               }
+             }return GRID;
+           }
+
+         Re-use code! Use the map method for arrays.
+         function safetyReport() { 
+           return GRID.map(row => row.map(cell => (cell === '^') ? 100 : ((cell === '~') ? 50 : 0)));
+         }      

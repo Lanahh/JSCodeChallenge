@@ -104,3 +104,14 @@ const GRID = [
          function safetyReport() { 
            return GRID.map(row => row.map(cell => (cell === '^') ? 100 : ((cell === '~') ? 50 : 0)));
          }      
+ #Day 21: Write a function called calcDistance() which will take two coordinates in the form of 'A3' and calculate the distance between the two points.
+ 
+  function convertRow(element){
+    return parseInt(element.slice(1)-1);
+  }
+  
+  function calcDistance(a, b){
+     var x = convertRow(a) - convertRow(b);
+     var y = convertColumn(a) - convertColumn(b); 
+    return Math.sqrt(x*x + y*y).toFixed(2);
+ }
